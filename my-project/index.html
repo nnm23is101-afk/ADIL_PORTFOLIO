@@ -1,13 +1,485 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my-project</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammed Adil | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    backdrop-filter:blur(10px);
+    background:rgba(15,23,42,0.8);
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#38bdf8;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#38bdf8;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:100px 10%;
+    background:linear-gradient(
+    135deg,
+    #0f172a,
+    #1e293b,
+    #312e81
+    );
+}
+
+.hero-content h1{
+    font-size:4rem;
+    margin-bottom:10px;
+}
+
+.hero-content h3{
+    color:#38bdf8;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:12px 30px;
+    border-radius:30px;
+    text-decoration:none;
+    background:#38bdf8;
+    color:black;
+    font-weight:600;
+    transition:.4s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+section{
+    padding:100px 10%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:60px;
+    color:#38bdf8;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:#1e293b;
+    padding:30px;
+    border-radius:20px;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 20px rgba(56,189,248,.3);
+}
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.skill{
+    background:#1e293b;
+    padding:20px;
+    border-radius:15px;
+}
+
+.progress{
+    width:100%;
+    background:#334155;
+    height:10px;
+    border-radius:20px;
+    margin-top:10px;
+}
+
+.progress span{
+    display:block;
+    height:100%;
+    border-radius:20px;
+    background:#38bdf8;
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:30px;
+}
+
+.project-card{
+    background:#1e293b;
+    padding:25px;
+    border-radius:20px;
+    transition:.4s;
+}
+
+.project-card:hover{
+    transform:scale(1.05);
+}
+
+.timeline{
+    border-left:4px solid #38bdf8;
+    padding-left:30px;
+}
+
+.timeline-item{
+    margin-bottom:40px;
+}
+
+.certificates{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.cert{
+    background:#1e293b;
+    padding:25px;
+    border-radius:15px;
+}
+
+.contact{
+    text-align:center;
+}
+
+.contact form{
+    max-width:600px;
+    margin:auto;
+}
+
+input,textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:10px;
+    background:#1e293b;
+    color:white;
+}
+
+button{
+    padding:12px 30px;
+    border:none;
+    border-radius:30px;
+    background:#38bdf8;
+    font-weight:600;
+    cursor:pointer;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:#020617;
+}
+
+.fade{
+    opacity:0;
+    transform:translateY(30px);
+    transition:1s;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<div class="logo">Mohammed Adil</div>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<h1>Mohammed Adil</h1>
+<h3 id="typing"></h3>
+
+<p>
+Information Science & Engineering Undergraduate passionate about
+Software Development, Web Development, Data Science, and Artificial Intelligence.
+Seeking opportunities to build impactful solutions and gain industry experience.
+</p>
+
+<a href="#" class="btn">Download Resume</a>
+</div>
+</section>
+
+<section id="about" class="fade">
+<h2 class="section-title">About Me</h2>
+
+<div class="about-grid">
+
+<div class="card">
+<h3>CGPA</h3>
+<h1>7.39</h1>
+</div>
+
+<div class="card">
+<h3>Projects</h3>
+<h1>2+</h1>
+</div>
+
+<div class="card">
+<h3>Certificates</h3>
+<h1>6+</h1>
+</div>
+
+<div class="card">
+<h3>Location</h3>
+<h1>Udupi</h1>
+</div>
+
+</div>
+</section>
+
+<section id="skills" class="fade">
+<h2 class="section-title">Skills</h2>
+
+<div class="skills">
+
+<div class="skill">
+Python
+<div class="progress"><span style="width:90%"></span></div>
+</div>
+
+<div class="skill">
+HTML/CSS
+<div class="progress"><span style="width:95%"></span></div>
+</div>
+
+<div class="skill">
+JavaScript
+<div class="progress"><span style="width:85%"></span></div>
+</div>
+
+<div class="skill">
+Flask
+<div class="progress"><span style="width:80%"></span></div>
+</div>
+
+<div class="skill">
+MySQL
+<div class="progress"><span style="width:88%"></span></div>
+</div>
+
+<div class="skill">
+C/C++
+<div class="progress"><span style="width:80%"></span></div>
+</div>
+
+</div>
+</section>
+
+<section id="projects" class="fade">
+<h2 class="section-title">Projects</h2>
+
+<div class="projects">
+
+<div class="project-card">
+<h3>Inventory & Order Management System</h3>
+<p>
+Developed using Flask and SQL Server with inventory tracking,
+supplier management, order processing and API integration.
+</p>
+</div>
+
+<div class="project-card">
+<h3>House Price Prediction</h3>
+<p>
+Machine learning project that predicts house prices using
+historical data and data science techniques.
+</p>
+</div>
+
+</div>
+</section>
+
+<section id="education" class="fade">
+<h2 class="section-title">Education</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>NMAM Institute of Technology</h3>
+<p>B.Tech Information Science & Engineering</p>
+<p>CGPA: 7.39</p>
+<p>2023 - Present</p>
+</div>
+
+<div class="timeline-item">
+<h3>St. Mary's PU College</h3>
+<p>Percentage: 87.25%</p>
+<p>2021 - 2023</p>
+</div>
+
+</div>
+</section>
+
+<section class="fade">
+<h2 class="section-title">Certificates</h2>
+
+<div class="certificates">
+
+<div class="cert">Java Programming - Beginner to Master</div>
+<div class="cert">Software Engineering Fundamentals</div>
+<div class="cert">TypeScript Programming</div>
+<div class="cert">AINNOVATION 2025</div>
+<div class="cert">Microsoft Azure Learning Challenge</div>
+<div class="cert">Microsoft AI Learning Challenge</div>
+
+</div>
+</section>
+
+<section id="contact" class="contact fade">
+<h2 class="section-title">Contact Me</h2>
+
+<form>
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<textarea rows="5" placeholder="Your Message"></textarea>
+<button>Send Message</button>
+</form>
+
+<br>
+
+<p>Email: adilmohammed9686@gmail.com</p>
+<p>Phone: 9686002235</p>
+
+</section>
+
+<footer>
+<p>© 2026 Mohammed Adil | Portfolio</p>
+</footer>
+
+<script>
+
+const texts = [
+"Python Developer",
+"Web Developer",
+"Data Science Enthusiast",
+"Software Engineer"
+];
+
+let count = 0;
+let index = 0;
+let currentText = '';
+let letter = '';
+
+(function type(){
+
+if(count === texts.length){
+count = 0;
+}
+
+currentText = texts[count];
+letter = currentText.slice(0, ++index);
+
+document.getElementById('typing').textContent = letter;
+
+if(letter.length === currentText.length){
+count++;
+index = 0;
+setTimeout(type,1500);
+}
+else{
+setTimeout(type,100);
+}
+
+})();
+
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('show');
+}
+});
+});
+
+document.querySelectorAll('.fade').forEach(el=>{
+observer.observe(el);
+});
+
+</script>
+
+</body>
 </html>
