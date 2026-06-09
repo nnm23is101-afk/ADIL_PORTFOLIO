@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mohammed Adil | Portfolio</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -23,16 +22,18 @@ html{
 
 body{
     background:#0f172a;
-    color:white;
+    color:#fff;
 }
+
+/* Navbar */
 
 header{
     position:fixed;
     width:100%;
     top:0;
     z-index:1000;
+    background:rgba(15,23,42,.9);
     backdrop-filter:blur(10px);
-    background:rgba(15,23,42,0.8);
 }
 
 nav{
@@ -51,7 +52,7 @@ nav{
 nav ul{
     display:flex;
     list-style:none;
-    gap:30px;
+    gap:25px;
 }
 
 nav ul li a{
@@ -64,13 +65,15 @@ nav ul li a:hover{
     color:#38bdf8;
 }
 
+/* Hero */
+
 .hero{
     min-height:100vh;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     text-align:center;
-    padding:100px 10%;
+    padding:120px 10%;
     background:linear-gradient(
     135deg,
     #0f172a,
@@ -79,37 +82,60 @@ nav ul li a:hover{
     );
 }
 
-.hero-content h1{
+.hero-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.profile-pic{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #38bdf8;
+    box-shadow:0 0 30px rgba(56,189,248,.5);
+    margin-bottom:25px;
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0);}
+}
+
+.hero h1{
     font-size:4rem;
-    margin-bottom:10px;
 }
 
-.hero-content h3{
+.hero h3{
     color:#38bdf8;
-    margin-bottom:20px;
+    margin:15px 0;
 }
 
-.hero-content p{
+.hero p{
     max-width:700px;
-    margin:auto;
     line-height:1.8;
 }
 
 .btn{
+    margin-top:25px;
     display:inline-block;
-    margin-top:30px;
     padding:12px 30px;
-    border-radius:30px;
-    text-decoration:none;
     background:#38bdf8;
     color:black;
+    text-decoration:none;
+    border-radius:30px;
     font-weight:600;
-    transition:.4s;
+    transition:.3s;
 }
 
 .btn:hover{
     transform:translateY(-5px);
 }
+
+/* Sections */
 
 section{
     padding:100px 10%;
@@ -118,31 +144,35 @@ section{
 .section-title{
     text-align:center;
     font-size:2.5rem;
-    margin-bottom:60px;
+    margin-bottom:50px;
     color:#38bdf8;
 }
+
+/* About */
 
 .about-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
+    gap:25px;
 }
 
 .card{
     background:#1e293b;
     padding:30px;
     border-radius:20px;
+    text-align:center;
     transition:.4s;
 }
 
 .card:hover{
     transform:translateY(-10px);
-    box-shadow:0 0 20px rgba(56,189,248,.3);
 }
+
+/* Skills */
 
 .skills{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:20px;
 }
 
@@ -153,7 +183,6 @@ section{
 }
 
 .progress{
-    width:100%;
     background:#334155;
     height:10px;
     border-radius:20px;
@@ -163,14 +192,16 @@ section{
 .progress span{
     display:block;
     height:100%;
-    border-radius:20px;
     background:#38bdf8;
+    border-radius:20px;
 }
+
+/* Projects */
 
 .projects{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
 }
 
 .project-card{
@@ -184,14 +215,18 @@ section{
     transform:scale(1.05);
 }
 
+/* Education */
+
 .timeline{
     border-left:4px solid #38bdf8;
-    padding-left:30px;
+    padding-left:25px;
 }
 
 .timeline-item{
-    margin-bottom:40px;
+    margin-bottom:35px;
 }
+
+/* Certificates */
 
 .certificates{
     display:grid;
@@ -201,9 +236,11 @@ section{
 
 .cert{
     background:#1e293b;
-    padding:25px;
+    padding:20px;
     border-radius:15px;
 }
+
+/* Contact */
 
 .contact{
     text-align:center;
@@ -233,11 +270,15 @@ button{
     cursor:pointer;
 }
 
+/* Footer */
+
 footer{
     text-align:center;
-    padding:30px;
+    padding:20px;
     background:#020617;
 }
+
+/* Animation */
 
 .fade{
     opacity:0;
@@ -249,30 +290,28 @@ footer{
     opacity:1;
     transform:translateY(0);
 }
-.profile-pic{
-    width:220px;
-    height:220px;
-    border-radius:50%;
-    object-fit:cover;
-    border:5px solid #38bdf8;
-    margin-bottom:20px;
-    box-shadow:0 0 30px rgba(56,189,248,0.5);
-    animation:float 3s ease-in-out infinite;
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.5rem;
 }
 
-@keyframes float{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-15px);}
-    100%{transform:translateY(0);}
+.profile-pic{
+    width:170px;
+    height:170px;
 }
+
+nav ul{
+    gap:10px;
+    font-size:14px;
+}
+}
+
 </style>
 </head>
 
 <body>
-  <img src="images.jpeg"
-     alt="Mohammed Adil"
-     class="profile-pic">
-
 
 <header>
 <nav>
@@ -285,25 +324,33 @@ footer{
 <li><a href="#education">Education</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
+
 </nav>
 </header>
 
 <section class="hero">
+
 <div class="hero-content">
+
+<img src="images.jpeg" alt="Mohammed Adil" class="profile-pic">
+
 <h1>Mohammed Adil</h1>
+
 <h3 id="typing"></h3>
 
 <p>
 Information Science & Engineering Undergraduate passionate about
-Software Development, Web Development, Data Science, and Artificial Intelligence.
-Seeking opportunities to build impactful solutions and gain industry experience.
+Software Development, Web Development, Data Science and Artificial Intelligence.
 </p>
 
 <a href="#" class="btn">Download Resume</a>
+
 </div>
+
 </section>
 
 <section id="about" class="fade">
+
 <h2 class="section-title">About Me</h2>
 
 <div class="about-grid">
@@ -329,9 +376,11 @@ Seeking opportunities to build impactful solutions and gain industry experience.
 </div>
 
 </div>
+
 </section>
 
 <section id="skills" class="fade">
+
 <h2 class="section-title">Skills</h2>
 
 <div class="skills">
@@ -342,7 +391,7 @@ Python
 </div>
 
 <div class="skill">
-HTML/CSS
+HTML / CSS
 <div class="progress"><span style="width:95%"></span></div>
 </div>
 
@@ -362,14 +411,16 @@ MySQL
 </div>
 
 <div class="skill">
-C/C++
+C / C++
 <div class="progress"><span style="width:80%"></span></div>
 </div>
 
 </div>
+
 </section>
 
 <section id="projects" class="fade">
+
 <h2 class="section-title">Projects</h2>
 
 <div class="projects">
@@ -377,23 +428,23 @@ C/C++
 <div class="project-card">
 <h3>Inventory & Order Management System</h3>
 <p>
-Developed using Flask and SQL Server with inventory tracking,
-supplier management, order processing and API integration.
+Developed a full-stack inventory system using Flask and SQL Server for order and stock management.
 </p>
 </div>
 
 <div class="project-card">
 <h3>House Price Prediction</h3>
 <p>
-Machine learning project that predicts house prices using
-historical data and data science techniques.
+Machine learning project to predict real estate prices using data science techniques.
 </p>
 </div>
 
 </div>
+
 </section>
 
 <section id="education" class="fade">
+
 <h2 class="section-title">Education</h2>
 
 <div class="timeline">
@@ -401,25 +452,25 @@ historical data and data science techniques.
 <div class="timeline-item">
 <h3>NMAM Institute of Technology</h3>
 <p>B.Tech Information Science & Engineering</p>
-<p>CGPA: 7.39</p>
-<p>2023 - Present</p>
+<p>CGPA : 7.39</p>
 </div>
 
 <div class="timeline-item">
 <h3>St. Mary's PU College</h3>
-<p>Percentage: 87.25%</p>
-<p>2021 - 2023</p>
+<p>87.25%</p>
 </div>
 
 </div>
+
 </section>
 
 <section class="fade">
+
 <h2 class="section-title">Certificates</h2>
 
 <div class="certificates">
 
-<div class="cert">Java Programming - Beginner to Master</div>
+<div class="cert">Java Programming</div>
 <div class="cert">Software Engineering Fundamentals</div>
 <div class="cert">TypeScript Programming</div>
 <div class="cert">AINNOVATION 2025</div>
@@ -427,16 +478,18 @@ historical data and data science techniques.
 <div class="cert">Microsoft AI Learning Challenge</div>
 
 </div>
+
 </section>
 
 <section id="contact" class="contact fade">
+
 <h2 class="section-title">Contact Me</h2>
 
 <form>
 <input type="text" placeholder="Your Name">
 <input type="email" placeholder="Your Email">
 <textarea rows="5" placeholder="Your Message"></textarea>
-<button>Send Message</button>
+<button type="submit">Send Message</button>
 </form>
 
 <br>
@@ -447,54 +500,48 @@ historical data and data science techniques.
 </section>
 
 <footer>
-<p>© 2026 Mohammed Adil | Portfolio</p>
+© 2026 Mohammed Adil | Portfolio
 </footer>
 
 <script>
 
-const texts = [
+const texts=[
 "Python Developer",
 "Web Developer",
 "Data Science Enthusiast",
 "Software Engineer"
 ];
 
-let count = 0;
-let index = 0;
-let currentText = '';
-let letter = '';
+let count=0;
+let index=0;
 
-(function type(){
+function type(){
 
-if(count === texts.length){
-count = 0;
-}
+let current=texts[count];
+document.getElementById("typing").innerHTML=
+current.slice(0,index++);
 
-currentText = texts[count];
-letter = currentText.slice(0, ++index);
-
-document.getElementById('typing').textContent = letter;
-
-if(letter.length === currentText.length){
-count++;
-index = 0;
-setTimeout(type,1500);
+if(index>current.length){
+count=(count+1)%texts.length;
+index=0;
+setTimeout(type,1000);
 }
 else{
 setTimeout(type,100);
 }
+}
 
-})();
+type();
 
-const observer = new IntersectionObserver(entries=>{
+const observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
 if(entry.isIntersecting){
-entry.target.classList.add('show');
+entry.target.classList.add("show");
 }
 });
 });
 
-document.querySelectorAll('.fade').forEach(el=>{
+document.querySelectorAll(".fade").forEach(el=>{
 observer.observe(el);
 });
 
